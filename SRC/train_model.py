@@ -99,9 +99,18 @@ if __name__ == "__main__":
         print(f"{m}: {a:.4f}")
 
     # 10. Confusion Matrix (Random Forest)
-    cm = confusion_matrix(y_test, rf_pred)
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    plt.title("Confusion Matrix - Random Forest")
-    plt.xlabel("Predicted")
-    plt.ylabel("Actual")
-    plt.show()
+    predictions = {
+        "Logistic Regression": lr_pred,
+        "Decision Tree": dt_pred,
+        "Random Forest": rf_pred,
+        "Neural Network": nn_pred
+    }
+
+    for name, pred in predictions.items():
+        plt.figure(figsize=(5, 4))
+        cm = confusion_matrix(y_test, pred)
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+        plt.title(f"Confusion Matrix - {name}")
+        plt.xlabel("Predicted")
+        plt.ylabel("Actual")
+        plt.show()
