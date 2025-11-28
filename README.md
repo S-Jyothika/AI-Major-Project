@@ -127,6 +127,3 @@ The confusion matrix clearly shows true/false predictions for heart disease clas
 Jyothika Sigirisetty
 AI/ML Student – Major Project
 Lakireddy Balireddy College of Engineering
-
-
-Just tell me!
