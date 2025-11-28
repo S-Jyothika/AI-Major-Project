@@ -7,7 +7,8 @@ This project predicts whether a patient has heart disease (1 = Yes, 0 = No) usin
     * Decision Tree
     * Random Forest
     * Neural Network (MLPClassifier)
-    
+The goal is to support early diagnosis and medical decision-making by identifying patterns associated with heart disease.
+
 ## Technologies Used
   * Python
   * Google Colab
@@ -35,19 +36,17 @@ The dataset contains 303 patient records with the following important features:
 ## Project Workflow
   # 1. Data Import & Loading
       -> Loaded dataset into Pandas
-      -> Displayed first few rows
-      -> Checked data types & structure
+      -> Checked structure, size, column names
   # 2. Data Exploration & Cleaning
-      -> Checked missing values
-      -> Cleaned categorical and numerical columns
-      -> Removed inconsistencies
-      -> Skipped unnecessary fields
+      -> Checked for missing values
+      -> Cleaned numeric/categorical fields
+      -> Identified important medical features
   # 3. Exploratory Data Analysis (EDA)
     Visualizations included:
       -> Correlation heatmap
       -> Count of heart disease vs no disease
       -> Cholesterol & age pattern 
-      -> Heart rate & chest pain analysis
+      -> Chest pain vs heart disease relationship
     These visualizations helped identify which factors impact heart disease.
   # 4. Data Preprocessing
       -> Selected important medical features
@@ -91,17 +90,18 @@ Project results:
   -- Neural Network (MLP)
 Both achieved the highest accuracy.
 
-## Confusion Matrix (Random Forest)
-Even though Random Forest was not the highest accuracy model, its confusion matrix was used because:
-  * It is easy to interpret
-  * Random Forest gives robust classification boundaries
-  * Medical ML studies commonly use Random Forest for visual evaluation
- Confusion Matrix Output:
-  ```
-   [[TN  FP]
-   [FN  TP]]
-  ```
-The confusion matrix clearly shows true/false predictions for heart disease classification.
+## Confusion Matrices 
+The project generates separate confusion matrix heatmaps for all four models:
+      >> Logistic Regression
+      >> Decision Tree
+      >> Random Forest
+      >> Neural Network (MLP)
+Confusion matrices clearly show:
+      --> True Positives (TP)
+      --> True Negatives (TN)
+      --> False Positives (FP)
+      --> False Negatives (FN)
+These help compare how each model classifies heart disease cases.
 
 ## How to Run the Project
   1. Open the notebook in Google Colab
@@ -111,16 +111,16 @@ The confusion matrix clearly shows true/false predictions for heart disease clas
   5. Evaluate accuracy and confusion matrix
 
 ## Future Enhancements
-  * Hyperparameter tuning for Random Forest & Neural Network
+  * Hyperparameter tuning for better accuracy
   * Adding XGBoost & SVM for better performance
   * Deploying model using Streamlit for real-time prediction
   * Integrating SHAP values for explainable AI (XAI)
   * Using cross-validation for more reliable accuracy
 
 ## Conclusion
-  >> This project successfully predicts heart disease using machine learning.
+  >> This project successfully predicts heart disease using machine learning algorithms.
   >> The best performing models were **Logistic Regression** and **Neural Network**, both achieving **85.24% accuracy**.
-  >> Random Forest, while slightly less accurate, provided the **confusion matrix visualization** used in the project.
+  >> Confusion matrices for all four models provide clear performance comparison.
   >> This model can assist doctors in preliminary screening and risk assessment.
 
 ## Author
