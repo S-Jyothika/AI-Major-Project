@@ -1,0 +1,7 @@
+This file contains the saved Random Forest machine learning model created during training using joblib.
+It is used for:
+    -> Deployment         - Deployment in applications such as Flask, Django, or Streamlit
+    -> Future predictions - Future predictions without needing to retrain the model
+    -> Faster loading     - Faster loading of the pretrained model for evaluation and testing
+
+Saving the model ensures that the final trained version can be reused anytime without repeating the entire training process.
