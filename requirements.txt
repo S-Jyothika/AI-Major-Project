@@ -3,3 +3,10 @@ numpy
 scikit-learn
 matplotlib
 seaborn
+
+Library	Used For:
+  -> pandas --	Loading and cleaning dataset
+  -> numpy --	Underlying numeric operations (used by sklearn & pandas)
+  -> matplotlib --	Plotting confusion matrices & accuracy graphs
+  -> seaborn	-- Heatmaps for confusion matrices
+  -> scikit-learn	-- All ML algorithms + preprocessing + metrics
