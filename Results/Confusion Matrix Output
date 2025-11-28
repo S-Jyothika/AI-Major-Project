@@ -1,0 +1,7 @@
+This file contains the confusion matrix generated from the Random Forest model.
+It represents:
+    -> True Positives (TP): 22
+    -> True Negatives (TN): 15
+    -> False Positives (FP): 4
+    -> False Negatives (FN): 2
+The confusion matrix helps evaluate how accurately the Random Forest model predicts heart disease, showing correctly and incorrectly classified cases.
