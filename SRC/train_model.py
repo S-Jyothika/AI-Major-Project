@@ -1,116 +1,42 @@
 """
-This file trains 4 ML models:
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Neural Network
-It evaluates them, prints metrics, compares accuracy,plots confusion matrix (Random Forest), and saves model.
+This file:
+    Loads dataset
+    Preprocesses data
+    Trains 4 machine learning models
+    Sends results to evaluation module
 """
 
-from preprocess import (
-    load_data,
-    clean_data,
-    split_data,
-    train_test_split_data,
-    scale_features
-)
+from load_data import load_dataset
+from preprocess import preprocess_data
+from evaluate import evaluate_model
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
+# ML models
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 
-from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    classification_report,
-    confusion_matrix,
-    roc_auc_score
-)
+def train_models():
 
-# Train & Evaluate Models
-def evaluate_model(name, y_true, y_pred):
-    """
-    Print evaluation metrics for a given model.
-    """
-    print(f"\n===== {name} =====")
-    print("Accuracy:", accuracy_score(y_true, y_pred))
-    print("Precision:", precision_score(y_true, y_pred))
-    print("Recall:", recall_score(y_true, y_pred))
-    print("F1 Score:", f1_score(y_true, y_pred))
-    print("ROC-AUC Score:", roc_auc_score(y_true, y_pred))
-    print("\nClassification Report:\n", classification_report(y_true, y_pred))
+    # STEP 1: Load dataset
+    df = load_dataset("../data/heart.csv")
 
-if __name__ == "__main__":
-    # 1. Load dataset
-    df = load_data("dataset/heart.csv")
-  
-    # 2. Clean dataset
-    df = clean_data(df)
+    # STEP 2: Preprocess dataset
+    X_train, X_test, y_train, y_test = preprocess_data(df)
 
-    # 3. Split into features and labels
-    X, y = split_data(df)
-
-    # 4. Train-test split
-    X_train, X_test, y_train, y_test = train_test_split_data(X, y)
-
-    # 5. Scaling
-    X_train_scaled, X_test_scaled = scale_features(X_train, X_test)
-
-    # 6. Train models
-    lr = LogisticRegression()
-    dt = DecisionTreeClassifier()
-    rf = RandomForestClassifier()
-    nn = MLPClassifier(max_iter=1000)
-
-    lr.fit(X_train_scaled, y_train)
-    dt.fit(X_train_scaled, y_train)
-    rf.fit(X_train_scaled, y_train)
-    nn.fit(X_train_scaled, y_train)
-
-    # 7. Predictions
-    lr_pred = lr.predict(X_test_scaled)
-    dt_pred = dt.predict(X_test_scaled)
-    rf_pred = rf.predict(X_test_scaled)
-    nn_pred = nn.predict(X_test_scaled)
-
-    # 8. Evaluation
-    evaluate_model("Logistic Regression", y_test, lr_pred)
-    evaluate_model("Decision Tree", y_test, dt_pred)
-    evaluate_model("Random Forest", y_test, rf_pred)
-    evaluate_model("Neural Network", y_test, nn_pred)
-
-    # 9. Accuracy Comparison Table
-    models = ['Logistic Regression', 'Decision Tree', 'Random Forest', 'Neural Network']
-    acc = [
-        accuracy_score(y_test, lr_pred),
-        accuracy_score(y_test, dt_pred),
-        accuracy_score(y_test, rf_pred),
-        accuracy_score(y_test, nn_pred)
-    ]
-
-    print("\n===== Model Accuracy Comparison =====")
-    for m, a in zip(models, acc):
-        print(f"{m}: {a:.4f}")
-
-    # 10. Confusion Matrix (Random Forest)
-    predictions = {
-        "Logistic Regression": lr_pred,
-        "Decision Tree": dt_pred,
-        "Random Forest": rf_pred,
-        "Neural Network": nn_pred
+    # STEP 3: Define ML models
+    models = {
+        "Logistic Regression": LogisticRegression(class_weight='balanced', max_iter=1000),
+        "Decision Tree": DecisionTreeClassifier(random_state=42),
+        "Random Forest": RandomForestClassifier(n_estimators=200, random_state=42),
+        "Neural Network": MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=2000, random_state=42)
     }
 
-    for name, pred in predictions.items():
-        plt.figure(figsize=(5, 4))
-        cm = confusion_matrix(y_test, pred)
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-        plt.title(f"Confusion Matrix - {name}")
-        plt.xlabel("Predicted")
-        plt.ylabel("Actual")
-        plt.show()
+    # STEP 4: Train each model one by one
+    for name, model in models.items():
+        print(f"\n⚙ Training {name}...")
+        model.fit(X_train, y_train)
+
+        # STEP 5: Evaluate model performance
+        evaluate_model(name, model, X_test, y_test)
+        
