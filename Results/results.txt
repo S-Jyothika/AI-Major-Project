@@ -1,0 +1,53 @@
+==> After training four different machine learning models on the Heart Disease dataset, the following results were obtained.  
+==> All evaluation metrics are based on the test data (20% split).  
+
+## 1. Logistic Regression
+- Accuracy: 78.68%
+- Precision: 0.76
+- Recall: 0.87
+- F1-Score: 0.81
+- ROC-AUC: 0.77
+Confusion Matrix:`results/logistic_regression_confusion_matrix.png`  
+This model performed well in identifying patients with heart disease (high recall), but struggled slightly with correctly identifying non-disease cases.
+
+## 2. Decision Tree Classifier
+- Accuracy: 70.49%
+- Precision: 0.70
+- Recall: 0.78
+- F1-Score: 0.74
+- ROC-AUC: 0.69
+Confusion Matrix:`results/decision_tree_confusion_matrix.png`  
+The Decision Tree shows signs of overfitting, resulting in lower accuracy compared to other models.
+
+## 3. Random Forest Classifier
+- Accuracy: 81.96%
+- Precision: 0.76
+- Recall: 0.96
+- F1-Score: 0.85
+- ROC-AUC: 0.80
+Confusion Matrix:`results/random_forest_confusion_matrix.png`  
+Random Forest achieved the highest accuracy, best F1-score, and strong generalization, making it the best-performing model among all.
+
+## 4. Neural Network (MLP Classifier)
+- Accuracy: 78.68%
+- Precision: 0.79
+- Recall: 0.81
+- F1-Score: 0.80
+- ROC-AUC: 0.78
+Confusion Matrix:`results/neural_network_confusion_matrix.png`  
+The Neural Network shows fairly balanced performance but slightly below Random Forest.
+
+## Overall Comparison
+| Model | Accuracy |
+|-------|----------|
+| Logistic Regression | 78.68% |
+| Decision Tree | 70.49% |
+| Random Forest | **81.96%** |
+| Neural Network | 78.68% |
+
+## Best Model Conclusion
+**Random Forest Classifier** achieved the best performance:  
+==> Highest Accuracy (81.96%)  
+==> Highest Recall (0.96)  
+==> Strong F1-Score (0.85)  
+==> Most robust predictions  
