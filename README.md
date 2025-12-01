@@ -106,7 +106,8 @@
    -> Add SHAP feature importance analysis
 
 ## Author
-Jyothika Sigirisetty
-GitHub: S-Jyothika
-AI / ML Developer
-
+      Jyothika Sigirisetty
+      Bachelor of Technology in Computer Science and Engineering
+      Lakireddy Balireddy College of Engineering, Mylavaram
+      Email: jyothisigirisetty@gmail.com
+      GitHub: S-Jyothika
