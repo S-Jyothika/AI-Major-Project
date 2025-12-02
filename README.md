@@ -1,6 +1,6 @@
 ## Heart Disease Prediction Using Machine Learning
 
--> his project predicts whether a patient has heart disease using supervised Machine Learning classification models.  
+-> This project predicts whether a patient has heart disease using supervised Machine Learning classification models.  
 -> The goal is to compare different ML algorithms and identify the best-performing model for medical risk prediction.
 -> The project is implemented in Python (Google Colab) using Scikit-learn.
 
@@ -32,7 +32,7 @@
 
 ## Dataset Details
 -> The dataset contains 303 patient records with 14 medical attributes.
--> Dataset used (from project PDF):  
+-> Dataset used:  
       -- https://colab.research.google.com/drive/1USPxPSgtISPHY3zva0xM3xyBJyqBCx6j#scrollTo=IxcY9RQiGP1X
       
 ## Project Workflow
@@ -68,7 +68,6 @@
    --> Confusion Matrix  
 
 ## Results 
-=> These values are **taken directly from the executed Colab notebook.**
    -> Logistic Regression Accuracy  : 78.68%
    -> Decision Tree Accuracy        : 70.49%
    -> Random Forest Accuracy        : 81.96% 
