@@ -100,10 +100,11 @@
          - F1 Score  : 0.8059  
 
 ## Future Enhancements
-   -> Hyperparameter tuning (GridSearchCV)
-   -> Add XGBoost and SVM
-   -> Build a Streamlit web app for real-time prediction
-   -> Add SHAP feature importance analysis
+   -> Integrate the model into a web application using Flask or Streamlit.
+   -> Collect real-time patient data from hospitals for model retraining.
+   -> Use deep learning models (CNNs / LSTMs) for higher accuracy.
+   -> Expand dataset size for better generalization.
+   -> Build an explainable AI model (XAI) for doctor-friendly insights.
 
 ## Author
       Jyothika Sigirisetty
