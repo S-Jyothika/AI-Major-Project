@@ -7,7 +7,7 @@
 - Recall: 0.87
 - F1-Score: 0.81
 - ROC-AUC: 0.77
-Confusion Matrix:`results/logistic_regression_confusion_matrix.png`  
+Confusion Matrix:`results/logistic regression.png`  
 This model performed well in identifying patients with heart disease (high recall), but struggled slightly with correctly identifying non-disease cases.
 
 ## 2. Decision Tree Classifier
@@ -16,7 +16,7 @@ This model performed well in identifying patients with heart disease (high recal
 - Recall: 0.78
 - F1-Score: 0.74
 - ROC-AUC: 0.69
-Confusion Matrix:`results/decision_tree_confusion_matrix.png`  
+Confusion Matrix:`results/decision tree.png`  
 The Decision Tree shows signs of overfitting, resulting in lower accuracy compared to other models.
 
 ## 3. Random Forest Classifier
@@ -25,7 +25,7 @@ The Decision Tree shows signs of overfitting, resulting in lower accuracy compar
 - Recall: 0.96
 - F1-Score: 0.85
 - ROC-AUC: 0.80
-Confusion Matrix:`results/random_forest_confusion_matrix.png`  
+Confusion Matrix:`results/random forest.png`  
 Random Forest achieved the highest accuracy, best F1-score, and strong generalization, making it the best-performing model among all.
 
 ## 4. Neural Network (MLP Classifier)
@@ -34,7 +34,7 @@ Random Forest achieved the highest accuracy, best F1-score, and strong generaliz
 - Recall: 0.81
 - F1-Score: 0.80
 - ROC-AUC: 0.78
-Confusion Matrix:`results/neural_network_confusion_matrix.png`  
+Confusion Matrix:`results/neural network.png`  
 The Neural Network shows fairly balanced performance but slightly below Random Forest.
 
 ## Overall Comparison
